@@ -54,7 +54,7 @@ if dataPath?
   dataPath = dataPath.trim()
   if fs.existsSync dataPath
     if isJSON.test dataPath
-      dataObject = require dataPath
+      dataObject = CSON.parseJSONFile dataPath
     else if isCSON.test dataPath
       dataObject = CSON.parseCSONFile dataPath
     else
