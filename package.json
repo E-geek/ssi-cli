@@ -1,0 +1,23 @@
+{
+  "name": "ssi-cli",
+  "version": "0.0.1",
+  "description": "build files wih ssi directives by cli",
+  "main": "bin/ssi.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "coffee -c -o bin ssi.coffee"
+  },
+  "keywords": [
+    "ssi",
+    "cli"
+  ],
+  "author": "E-geek",
+  "license": "MIT",
+  "dependencies": {
+    "node-ssi": "^0.3.1",
+    "optimist": "=0.6.1"
+  },
+  "devDependencies": {
+    "coffee-script": "=1.9.3"
+  }
+}
