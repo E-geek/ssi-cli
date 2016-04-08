@@ -7,6 +7,10 @@
 ```bash
     $ npm install -g ssi 
 ```
+For test go to module directory and run
+```bash
+    $ npm test
+```
 
 ## Usage
 
