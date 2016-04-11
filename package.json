@@ -1,6 +1,6 @@
 {
   "name": "ssi-cli",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "description": "build files wih ssi directives by cli",
   "main": "bin/ssi.js",
   "scripts": {
