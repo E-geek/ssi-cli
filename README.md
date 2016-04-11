@@ -5,7 +5,7 @@
 ## Installation
 
 ```bash
-    $ npm install -g ssi 
+    $ npm install -g ssi-cli 
 ```
 For test go to module directory and run
 ```bash
@@ -21,6 +21,21 @@ ssi path/to/filename path/to/output
 Print to console:
 ```bash
 ssi -p path/to/filename  
+```
+
+### Example
+Structure:
+```
++usage_dir
+|--root.ssi
+|-+resources/
+  |--resource.ssi
+  |--other.ssi
+```
+For example `root.ssi` include `/resources/resource.ssi` and you want print output. Then run example:
+ 
+```bash
+ssi -p -d usage_dir root.ssi
 ```
 
 Path to the file has root dir ./ by default. You can change the root directory, 
