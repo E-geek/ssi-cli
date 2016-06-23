@@ -1,10 +1,11 @@
 {
   "name": "ssi-cli",
-  "version": "0.0.4",
+  "version": "0.0.5",
   "description": "build files wih ssi directives by cli",
   "main": "bin/ssi.js",
   "scripts": {
-    "test": "mocha -s 500 -c -r chai --compilers coffee:coffee-script/register tests ",
+    "test": "mocha --timeout 5000 -s 500 -c -r chai --compilers coffee:coffee-script/register tests ",
+    "cover": "istanbul cover -x 'lib/*.js' ./node_modules/.bin/_mocha -- --compilers coffee:coffee-script/register -r coffee-coverage/register-istanbul -r chai tests",
     "build": "coffee --no-header -c bin lib/ssi.coffee"
   },
   "bin": {
@@ -14,16 +15,31 @@
     "ssi",
     "cli"
   ],
-  "repository": "https://github.com/E-geek/ssi-cli.git",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/E-geek/ssi-cli.git"
+  },
   "author": "E-geek",
   "license": "MIT",
   "dependencies": {
-    "chai": "=3.5.0",
     "coffee-script": "=1.9.3",
     "concat-stream": "=1.5.1",
     "cson": "=3.0.2",
-    "mocha": "=2.4.5",
     "node-ssi": "=0.3.1",
     "optimist": "=0.6.1"
+  },
+  "devDependencies": {
+    "chai": "=3.5.0",
+    "coffee-coverage": "=1.0.1",
+    "istanbul": "=0.4.4",
+    "mocha": "=2.4.5",
+    "mock-utf8-stream": "=0.1.1"
+  },
+  "bugs": {
+    "url": "https://github.com/E-geek/ssi-cli/issues"
+  },
+  "homepage": "https://github.com/E-geek/ssi-cli#readme",
+  "directories": {
+    "test": "tests"
   }
 }
