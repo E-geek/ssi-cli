@@ -79,12 +79,6 @@ describe 'test emulate ssi', ->
       emulateCli argv, (code) ->
         assert.equal code, 3
         done()
-      ###
-      ssi = child.spawn exec, argv
-      ssi.on 'close', (code) ->
-        assert.equal code, 3
-        done()
-      ###
     it 'fail parse ssi', (done) ->
       argv = templateArgv.slice(0)
       argv[2] = 'test_i'
@@ -92,23 +86,11 @@ describe 'test emulate ssi', ->
       emulateCli argv, (code) ->
         assert.equal code, 4
         done()
-      ###
-      ssi = child.spawn exec, argv
-      ssi.on 'close', (code) ->
-        assert.equal code, 4
-        done()
-      ###
     it 'no -p, no output', (done) ->
       argv = templateArgv.slice(0)
       emulateCli argv, (code) ->
         assert.equal code, 5
         done()
-      ###
-      ssi = child.spawn exec, argv
-      ssi.on 'close', (code) ->
-        assert.equal code, 5
-        done()
-      ###
   describe 'behavior', ->
     it '-p', (done) ->
       argv = templateArgv.slice(0)
@@ -122,14 +104,6 @@ describe 'test emulate ssi', ->
         done()
       stdout.on 'data', (data) -> buffer += data.toString()
       stderr.on 'data', (data) -> err += data.toString()
-      ###
-      ssi = child.spawn exec, argv
-      buffer = ''
-      ssi.stdout.on 'data', (data) -> buffer += data.toString()
-      ssi.on 'close', (code) ->
-        assert.equal code, 0
-        assert.equal buffer, 'NyaaC'
-        done()###
     it '-p test_o -o {o:1}', (done) ->
       argv = templateArgv.slice(0)
       argv[4] = 'test_o'
@@ -144,14 +118,6 @@ describe 'test emulate ssi', ->
         done()
       stdout.on 'data', (data) -> buffer += data.toString()
       stderr.on 'data', (data) -> err += data.toString()
-      ###
-      ssi = child.spawn exec, argv
-      buffer = ''
-      ssi.stdout.on 'data', (data) -> buffer += data.toString()
-      ssi.on 'close', (code) ->
-        assert.equal code, 0
-        assert.equal buffer, 'NyaaC1'
-        done()###
     it '-p test_o -i resources/data.json', (done) ->
       argv = templateArgv.slice(0)
       argv[4] = 'test_o'
@@ -167,14 +133,6 @@ describe 'test emulate ssi', ->
         done()
       stdout.on 'data', (data) -> buffer += data.toString()
       stderr.on 'data', (data) -> err += data.toString()
-      ###
-      ssi = child.spawn exec, argv
-      buffer = ''
-      ssi.stdout.on 'data', (data) -> buffer += data.toString()
-      ssi.on 'close', (code) ->
-        assert.equal code, 0
-        assert.equal buffer, 'NyaaC1'
-        done()###
     it '-p test_o -i resources/data.cson', (done) ->
       argv = templateArgv.slice(0)
       argv[4] = 'test_o'
@@ -190,14 +148,6 @@ describe 'test emulate ssi', ->
         done()
       stdout.on 'data', (data) -> buffer += data.toString()
       stderr.on 'data', (data) -> err += data.toString()
-      ###
-      ssi = child.spawn exec, argv
-      buffer = ''
-      ssi.stdout.on 'data', (data) -> buffer += data.toString()
-      ssi.on 'close', (code) ->
-        assert.equal code, 0
-        assert.equal buffer, 'NyaaC1'
-        done()###
     it 'test_o -o {o:1}', (done) ->
       argv = templateArgv.slice(0)
       argv[4] = 'test_o'
@@ -214,12 +164,6 @@ describe 'test emulate ssi', ->
         done()
       stdout.on 'data', (data) -> buffer += data.toString()
       stderr.on 'data', (data) -> err += data.toString()
-      ###
-      ssi = child.spawn exec, argv
-      ssi.on 'close', (code) ->
-        assert.equal code, 0
-        assert.equal fs.readFileSync(out).toString(), 'NyaaC1'
-        done() # ###
     it '-p test_o -i resources/data.json', (done) ->
       argv = templateArgv.slice(0)
       argv[4] = 'test_o'
@@ -237,12 +181,6 @@ describe 'test emulate ssi', ->
         done()
       stdout.on 'data', (data) -> buffer += data.toString()
       stderr.on 'data', (data) -> err += data.toString()
-      ###
-      ssi = child.spawn exec, argv
-      ssi.on 'close', (code) ->
-        assert.equal code, 0
-        assert.equal fs.readFileSync(out).toString(), 'NyaaC1'
-        done()###
     it '-p test_o -i resources/data.cson', (done) ->
       argv = templateArgv.slice(0)
       argv[4] = 'test_o'
@@ -260,10 +198,4 @@ describe 'test emulate ssi', ->
         done()
       stdout.on 'data', (data) -> buffer += data.toString()
       stderr.on 'data', (data) -> err += data.toString()
-      ###
-      ssi = child.spawn exec, argv
-      ssi.on 'close', (code) ->
-        assert.equal code, 0
-        assert.equal fs.readFileSync(out).toString(), 'NyaaC1'
-        done()###
 
