@@ -1,4 +1,6 @@
 # ssi-cli
+[![Build Status](https://travis-ci.org/E-geek/ssi-cli.svg?branch=master)](https://travis-ci.org/E-geek/ssi-cli)
+[![Coverage Status](https://coveralls.io/repos/github/E-geek/ssi-cli/badge.svg?branch=master)](https://coveralls.io/github/E-geek/ssi-cli?branch=master)
 
 > The command line tool to build files with SSI directives.
 
